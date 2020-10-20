@@ -13,3 +13,10 @@ const refs = {
   switch: document.querySelector('theme-switch__toggle')
 };
 
+const menuMarkup = createMenu(menuEl);
+
+refs.menu.insertAdjacentHTML('afterbegin', menuMarkup);
+
+function createMenu(item) {
+  return item.map(menuTemplates).join('');
+}
