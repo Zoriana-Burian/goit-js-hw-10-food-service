@@ -19,11 +19,10 @@ refs.menu.insertAdjacentHTML('afterbegin', menuMarkup);
 
 
 function createMenu(item) {
-  return item.map(menuTemplates).join('');
+  return item
+  .map(menuTemplates)
+  .join('');
 }
-
-
-
 
 refs.switch.addEventListener('change', onSetTheme);
 
@@ -34,7 +33,9 @@ function onSetTheme(evt){
     refs.body.classList.remove(Theme.LIGHT); 
     
     localStorage.setItem('theme', Theme.DARK)
-   } else {
+   } 
+   
+   else {
     refs.body.classList.add(Theme.LIGHT);
     refs.body.classList.remove(Theme.DARK);
     
@@ -46,7 +47,9 @@ function onSetTheme(evt){
 getLocalStorage()
 
 function getLocalStorage() {
+  
   const themeLocSt = localStorage.getItem('theme');
+  
   if (themeLocSt === Theme.DARK) {
     refs.body.classList.add(Theme.DARK);
     refs.switch.checked = true;
